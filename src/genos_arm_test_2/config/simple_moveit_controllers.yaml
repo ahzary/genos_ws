@@ -1,0 +1,9 @@
+controller_list:
+  - name: cyborg_sys_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - joint_adcu_1
+      - joint_2_S_rev
+      - joint_3_rev

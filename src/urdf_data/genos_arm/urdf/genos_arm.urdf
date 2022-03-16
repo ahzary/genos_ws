@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="genos_arm">
+    <link name="world" />
+    <link name="base_link">
+        
+<inertial>
+            <origin xyz="-0.0532016838101188 0.0242261098910182 1.14682652147493" rpy="0 0 0" />
+            <mass value="0.186774887849971" />
+            <inertia ixx="0.000346953127447042" ixy="-4.43999769224878E-06" ixz="5.03079981568357E-22" iyy="0.00031048934002632" iyz="-1.79439831910963E-20" izz="4.06423980219236E-05" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://genos_arm/meshes/base_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://genos_arm/meshes/base_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="link_1_S_aduc">
+        
+<inertial>
+            <origin xyz="0.0627185461030959 0.00105824659029907 -0.0228092393950861" rpy="0 0 0" />
+            <mass value="0.194782225878589" />
+            <inertia ixx="4.10066260409285E-05" ixy="-5.09706962190601E-06" ixz="4.02340649945793E-20" iyy="0.000343005977675057" iyz="-1.38966342908909E-21" izz="0.000380766233284676" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://genos_arm/meshes/link_1_S_aduc.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://genos_arm/meshes/link_1_S_aduc.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="world_joint" type="fixed">
+        <parent link="world" />
+        <child link="base_link" />
+    </joint>
+    <joint name="joint_adcu_1" type="continuous">
+        <origin xyz="-0.0404837030222089 0.0226998141926109 1.21224322187183" rpy="1.5707963267949 0.0108613941738253 1.4513567037453" />
+        <parent link="base_link" />
+        <child link="link_1_S_aduc" />
+        <axis xyz="0 0 1" />
+    </joint>
+    <link name="link_passive_1">
+        
+<inertial>
+            <origin xyz="0.053884189687728 0.0271928860666164 0.00505224239552149" rpy="0 0 0" />
+            <mass value="0.114987383770919" />
+            <inertia ixx="2.4972951246468E-05" ixy="-7.22270949824152E-19" ixz="-6.09863722023096E-20" iyy="7.97534220207357E-05" iyz="-3.88920249552187E-07" izz="0.00010279679241092" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://genos_arm/meshes/link_passive_1.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://genos_arm/meshes/link_passive_1.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="fixed_passive_1" type="fixed">
+        <origin xyz="0.135 -0.0230000000000048 -0.127809239395095" rpy="-2.50253742856838 -1.57079630572147 2.50533291619349" />
+        <parent link="link_1_S_aduc" />
+        <child link="link_passive_1" />
+        <axis xyz="0 0 0" />
+    </joint>
+    <link name="link_2_S_flex">
+        
+<inertial>
+            <origin xyz="0.0343235035054608 -2.45997000279385E-05 0.00522934542868636" rpy="0 0 0" />
+            <mass value="0.122994721799536" />
+            <inertia ixx="2.5276587294501E-05" ixy="1.94036347754068E-10" ixz="1.50610770145653E-06" iyy="9.13435806787004E-05" iyz="4.74214522220896E-09" izz="0.000114519432792271" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://genos_arm/meshes/link_2_S_flex.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://genos_arm/meshes/link_2_S_flex.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint_2_S_rev" type="continuous">
+        <origin xyz="0.0149999999999997 0.025000000000001 0.00920822889014553" rpy="0 0 -1.58291856073267" />
+        <parent link="link_passive_1" />
+        <child link="link_2_S_flex" />
+        <axis xyz="0 0 1" />
+    </joint>
+    <link name="link_2_S_passive">
+        
+<inertial>
+            <origin xyz="0.0126740440892248 -0.00599117175268329 0.126536768709444" rpy="0 0 0" />
+            <mass value="0.931440212187241" />
+            <inertia ixx="0.00524234185541984" ixy="-0.000253144623704425" ixz="7.26134534202072E-05" iyy="0.0052612858432027" iyz="-4.26352332733893E-06" izz="0.000939681273900423" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://genos_arm/meshes/link_2_S_passive.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://genos_arm/meshes/link_2_S_passive.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint_2_passive" type="fixed">
+        <origin xyz="0.31500000000001 0.0200000000000026 0.0457917711098549" rpy="-0.0190271992194839 1.57079631189374 3.12445963243506" />
+        <parent link="link_2_S_flex" />
+        <child link="link_2_S_passive" />
+        <axis xyz="0 0 0" />
+    </joint>
+    <link name="link_2_S_passive_2">
+        
+<inertial>
+            <origin xyz="0.0559567612941825 0.024974874571406 0.0107035671967797" rpy="0 0 0" />
+            <mass value="0.114987383770919" />
+            <inertia ixx="2.49950997113638E-05" ixy="-1.74014837375412E-10" ixz="1.31275792470068E-06" iyy="7.97468607547848E-05" iyz="-4.71287284918296E-09" izz="0.000102781205211975" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://genos_arm/meshes/link_2_S_passive_2.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://genos_arm/meshes/link_2_S_passive_2.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint_2_S_passive_2" type="fixed">
+        <origin xyz="0.0349999999999934 0.0450000000000108 -0.08" rpy="-1.60124963937506 -1.57079630572147 -1.54034371338239" />
+        <parent link="link_2_S_passive" />
+        <child link="link_2_S_passive_2" />
+        <axis xyz="0 0 0" />
+    </joint>
+    <link name="link_3_e_rev">
+        
+<inertial>
+            <origin xyz="0.0361443917164831 -0.00189872275262637 -0.00142782478082573" rpy="0 0 0" />
+            <mass value="0.122994721799536" />
+            <inertia ixx="2.5251478983124E-05" ixy="1.73558005222769E-09" ixz="1.64284718566832E-07" iyy="9.13501045853309E-05" iyz="3.89025977200301E-07" izz="0.000114538017197019" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://genos_arm/meshes/link_3_e_rev.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://genos_arm/meshes/link_3_e_rev.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint_3_rev" type="continuous">
+        <origin xyz="0.015 0.025 0" rpy="-3.14159265358979 0 -1.69219555052437" />
+        <parent link="link_2_S_passive_2" />
+        <child link="link_3_e_rev" />
+        <axis xyz="0 0 1" />
+    </joint>
+    <link name="link_3_e_passive">
+        
+<inertial>
+            <origin xyz="0.0166610782499463 -0.00461636487324657 0.125152879605984" rpy="0 0 0" />
+            <mass value="0.93144021218724" />
+            <inertia ixx="0.0052519441776418" ixy="-0.000253334746689582" ixz="7.93247116484849E-06" iyy="0.00525289403762183" iyz="-3.99544603221234E-07" izz="0.000938470757259322" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://genos_arm/meshes/link_3_e_passive.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://genos_arm/meshes/link_3_e_passive.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint_3_e_passive" type="fixed">
+        <origin xyz="0.315000000000001 0.0199999999999961 0.0449999999999976" rpy="3.14159265358979 1.5707963267949 0" />
+        <parent link="link_3_e_rev" />
+        <child link="link_3_e_passive" />
+        <axis xyz="0 0 0" />
+    </joint>
+    
+<transmission name="trans_joint_adcu_1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_adcu_1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_adcu_1_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_2_S_rev">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_2_S_rev">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_2_S_rev_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_3_rev">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_3_rev">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_3_rev_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+    <transmission name="trans_joint_adcu_1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_adcu_1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_adcu_1_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_2_S_rev">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_2_S_rev">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_2_S_rev_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_3_rev">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_3_rev">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_3_rev_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+    <transmission name="trans_joint_adcu_1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_adcu_1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_adcu_1_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_2_S_rev">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_2_S_rev">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_2_S_rev_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_3_rev">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_3_rev">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_3_rev_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+    <transmission name="trans_joint_adcu_1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_adcu_1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_adcu_1_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_2_S_rev">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_2_S_rev">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_2_S_rev_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_3_rev">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_3_rev">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_3_rev_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>genos_arm</robotNamespace>
+        </plugin>
+    </gazebo>
+    <transmission name="trans_joint_adcu_1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_adcu_1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_adcu_1_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_2_S_rev">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_2_S_rev">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_2_S_rev_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_3_rev">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_3_rev">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_3_rev_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>genos_arm</robotNamespace>
+        </plugin>
+    </gazebo>
+    <transmission name="trans_joint_adcu_1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_adcu_1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_adcu_1_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_2_S_rev">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_2_S_rev">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_2_S_rev_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_3_rev">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_3_rev">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_3_rev_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>genos_arm</robotNamespace>
+        </plugin>
+    </gazebo>
+    <transmission name="trans_joint_adcu_1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_adcu_1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_adcu_1_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_2_S_rev">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_2_S_rev">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_2_S_rev_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_3_rev">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_3_rev">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_3_rev_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>genos_arm</robotNamespace>
+        </plugin>
+    </gazebo>
+    <transmission name="trans_joint_adcu_1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_adcu_1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_adcu_1_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_2_S_rev">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_2_S_rev">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_2_S_rev_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_3_rev">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_3_rev">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_3_rev_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>genos_arm</robotNamespace>
+        </plugin>
+    </gazebo>
+    <transmission name="trans_joint_adcu_1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_adcu_1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_adcu_1_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_2_S_rev">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_2_S_rev">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_2_S_rev_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_3_rev">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_3_rev">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_3_rev_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>genos_arm</robotNamespace>
+        </plugin>
+    </gazebo>
+    <transmission name="trans_joint_adcu_1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_adcu_1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_adcu_1_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_2_S_rev">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_2_S_rev">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_2_S_rev_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint_3_rev">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_3_rev">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_3_rev_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+</robot>

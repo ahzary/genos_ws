@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: genos_arm
+    relative_path: urdf/genos_arm_1cont.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/genos_arm.srdf
+  CONFIG:
+    author_name: ahzary
+    author_email: ahmed.nazar@rocketmail.com
+    generated_timestamp: 1646756457
