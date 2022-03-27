@@ -1,7 +1,3 @@
- *  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- *  POSSIBILITY OF SUCH DAMAGE.
- *********************************************************************/
-
 /* Author: Sachin Chitta, Dave Coleman, Mike Lautman */
 
 #include <moveit/move_group_interface/move_group_interface.h>
@@ -37,7 +33,7 @@ int main(int argc, char** argv)
   // MoveIt operates on sets of joints called "planning groups" and stores them in an object called
   // the `JointModelGroup`. Throughout MoveIt the terms "planning group" and "joint model group"
   // are used interchangeably.
-  static const std::string PLANNING_GROUP = "panda_arm";
+  static const std::string PLANNING_GROUP = "cuyborg_sys_101";
 
   // The :planning_interface:`MoveGroupInterface` class can be easily
   // setup using just the name of the planning group you would like to control and plan for.
@@ -56,7 +52,7 @@ int main(int argc, char** argv)
   //
   // The package MoveItVisualTools provides many capabilities for visualizing objects, robots,
   // and trajectories in RViz as well as debugging tools such as step-by-step introspection of a script.
-  namespace rvt = rviz_visual_tools;
+  /*namespace rvt = rviz_visual_tools;
   moveit_visual_tools::MoveItVisualTools visual_tools("panda_link0");
   visual_tools.deleteAllMarkers();
 
@@ -70,7 +66,7 @@ int main(int argc, char** argv)
   visual_tools.publishText(text_pose, "MoveGroupInterface Demo", rvt::WHITE, rvt::XLARGE);
 
   // Batch publishing is used to reduce the number of messages being sent to RViz for large visualizations
-  visual_tools.trigger();
+  visual_tools.trigger();*/
 
   // Getting Basic Information
   // ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -88,7 +84,7 @@ int main(int argc, char** argv)
 
   // Start the demo
   // ^^^^^^^^^^^^^^^^^^^^^^^^^
-  visual_tools.prompt("Press 'next' in the RvizVisualToolsGui window to start the demo");
+ /* visual_tools.prompt("Press 'next' in the RvizVisualToolsGui window to start the demo");*/
 
   // .. _move_group_interface-planning-to-pose-goal:
   //
@@ -116,11 +112,11 @@ int main(int argc, char** argv)
   // ^^^^^^^^^^^^^^^^^
   // We can also visualize the plan as a line with markers in RViz.
   ROS_INFO_NAMED("tutorial", "Visualizing plan 1 as trajectory line");
-  visual_tools.publishAxisLabeled(target_pose1, "pose1");
+ /* visual_tools.publishAxisLabeled(target_pose1, "pose1");
   visual_tools.publishText(text_pose, "Pose Goal", rvt::WHITE, rvt::XLARGE);
   visual_tools.publishTrajectoryLine(my_plan.trajectory_, joint_model_group);
   visual_tools.trigger();
-  visual_tools.prompt("Press 'next' in the RvizVisualToolsGui window to continue the demo");
+  visual_tools.prompt("Press 'next' in the RvizVisualToolsGui window to continue the demo");*/
 
   // Finally, to execute the trajectory stored in my_plan, you could use the following method call:
   // Note that this can lead to problems if the robot moved in the meanwhile.
@@ -136,7 +132,7 @@ int main(int argc, char** argv)
 
   // move_group_interface.move();
 
-  // Planning to a joint-space goal
+  // Planning to a joint-space goal                  <========================
   // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   //
   // Let's set a joint space goal and move towards it.  This will replace the
@@ -151,7 +147,10 @@ int main(int argc, char** argv)
   current_state->copyJointGroupPositions(joint_model_group, joint_group_positions);
 
   // Now, let's modify one of the joints, plan to the new joint space goal and visualize the plan.
-  joint_group_positions[0] = -tau / 6;  // -1/6 turn in radians
+  joint_group_positions[0] = 0;// -1/6 turn in radians
+  joint_group_positions[1] = 0;// -1/6 turn in radians
+  joint_group_positions[2] = 0;// -1/6 turn in radians
+  
   move_group_interface.setJointValueTarget(joint_group_positions);
 
   // We lower the allowed maximum velocity and acceleration to 5% of their maximum.
@@ -162,14 +161,15 @@ int main(int argc, char** argv)
   move_group_interface.setMaxAccelerationScalingFactor(0.05);
 
   success = (move_group_interface.plan(my_plan) == moveit::planning_interface::MoveItErrorCode::SUCCESS);
+  
   ROS_INFO_NAMED("tutorial", "Visualizing plan 2 (joint space goal) %s", success ? "" : "FAILED");
 
   // Visualize the plan in RViz
-  visual_tools.deleteAllMarkers();
+ /*isual_tools.deleteAllMarkers();
   visual_tools.publishText(text_pose, "Joint Space Goal", rvt::WHITE, rvt::XLARGE);
   visual_tools.publishTrajectoryLine(my_plan.trajectory_, joint_model_group);
   visual_tools.trigger();
-  visual_tools.prompt("Press 'next' in the RvizVisualToolsGui window to continue the demo");
+  visual_tools.prompt("Press 'next' in the RvizVisualToolsGui window to continue the demo");*/
 
   // Planning with Path Constraints
   // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -177,7 +177,7 @@ int main(int argc, char** argv)
   // Path constraints can easily be specified for a link on the robot.
   // Let's specify a path constraint and a pose goal for our group.
   // First define the path constraint.
-  moveit_msgs::OrientationConstraint ocm;
+ /*oveit_msgs::OrientationConstraint ocm;
   ocm.link_name = "panda_link7";
   ocm.header.frame_id = "panda_link0";
   ocm.orientation.w = 1.0;
@@ -189,7 +189,7 @@ int main(int argc, char** argv)
   // Now, set it as the path constraint for the group.
   moveit_msgs::Constraints test_constraints;
   test_constraints.orientation_constraints.push_back(ocm);
-  move_group_interface.setPathConstraints(test_constraints);
+  move_group_interface.setPathConstraints(test_constraints);*/
 
   // Enforce Planning in Joint Space
   // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -211,7 +211,7 @@ int main(int argc, char** argv)
   // Note that this will only work if the current state already
   // satisfies the path constraints. So we need to set the start
   // state to a new pose.
-  moveit::core::RobotState start_state(*move_group_interface.getCurrentState());
+  /*veit::core::RobotState start_state(*move_group_interface.getCurrentState());
   geometry_msgs::Pose start_pose2;
   start_pose2.orientation.w = 1.0;
   start_pose2.position.x = 0.55;
@@ -407,7 +407,7 @@ int main(int argc, char** argv)
   visual_tools.trigger();
 
   /* Wait for MoveGroup to receive and process the attached collision object message */
-  visual_tools.prompt("Press 'next' in the RvizVisualToolsGui window once the new object is attached to the robot");
+  /*al_tools.prompt("Press 'next' in the RvizVisualToolsGui window once the new object is attached to the robot");
 
   // Replan, but now with the object in hand.
   move_group_interface.setStartStateToCurrentState();
@@ -415,7 +415,7 @@ int main(int argc, char** argv)
   ROS_INFO_NAMED("tutorial", "Visualizing plan 7 (move around cuboid with cylinder) %s", success ? "" : "FAILED");
   visual_tools.publishTrajectoryLine(my_plan.trajectory_, joint_model_group);
   visual_tools.trigger();
-  visual_tools.prompt("Press 'next' in the RvizVisualToolsGui window once the plan is complete");
+  visual_tools.prompt("Press 'next' in the RvizVisualToolsGui window once the plan is complete");*/
 
   // The result may look something like this:
   //
@@ -426,7 +426,7 @@ int main(int argc, char** argv)
   // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   //
   // Now, let's detach the cylinder from the robot's gripper.
-  ROS_INFO_NAMED("tutorial", "Detach the object from the robot");
+ /*OS_INFO_NAMED("tutorial", "Detach the object from the robot");
   move_group_interface.detachObject(object_to_attach.id);
 
   // Show text in RViz of status
@@ -435,6 +435,7 @@ int main(int argc, char** argv)
   visual_tools.trigger();
 
   /* Wait for MoveGroup to receive and process the attached collision object message */
+  /*
   visual_tools.prompt("Press 'next' in the RvizVisualToolsGui window once the new object is detached from the robot");
 
   // Now, let's remove the objects from the world.
@@ -448,8 +449,8 @@ int main(int argc, char** argv)
   visual_tools.publishText(text_pose, "Objects removed", rvt::WHITE, rvt::XLARGE);
   visual_tools.trigger();
 
-  /* Wait for MoveGroup to receive and process the attached collision object message */
-  visual_tools.prompt("Press 'next' in the RvizVisualToolsGui window to once the collision object disappears");
+  /* Wait for MoveGroup to receive and process the attached collision object message 
+  visual_tools.prompt("Press 'next' in the RvizVisualToolsGui window to once the collision object disappears");*/
 
   // END_TUTORIAL
 
