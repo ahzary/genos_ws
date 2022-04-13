@@ -46,6 +46,7 @@ find_package(catkin REQUIRED COMPONENTS message_generation cmake_modules hardwar
 add_message_files(FILES
   armCmd.msg
   auboTelemetry.msg
+  emgmsg.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -145,5 +146,12 @@ target_link_libraries(watchdog_signal
 
 
 catkin_install_python(PROGRAMS src/rasp_control.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+catkin_install_python(PROGRAMS src/move_group_interface_python.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+catkin_install_python(PROGRAMS src/emg_planner.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

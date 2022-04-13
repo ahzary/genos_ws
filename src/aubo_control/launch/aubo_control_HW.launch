@@ -64,16 +64,16 @@
    <!-- <node name="watchdog_signal" pkg="aubo_control" type="watchdog_signal" output="screen"/> -->
 
     <!-- rosserial to arduino -->
-   <node pkg="rosserial_arduino" type="serial_node" name="arduino" output="screen" respawn="true"> 
+   <node pkg="rosserial_arduino" type="serial_node.py" name="arduino" output="screen" respawn="true"> 
         <rosparam>
             port: /dev/ttyACM0
-          
+            baud: 115200          
             
 
         </rosparam>
     </node>
 
-    <node pkg="aubo_control" name="pi_4" type ="rasp_control" output="screen" respawn="true"></node>
+    <node pkg="aubo_control" name="pi_4" type ="rasp_control.py" output="screen" respawn="true"></node>
  
 
 </launch>

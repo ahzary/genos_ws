@@ -7,7 +7,7 @@
     <param name="robot_description" textfile="$(find genos_arm)/urdf/genos_arm_1cont.urdf"/>
 
     <!-- Show in Rviz  -->
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find aubo_control)/basic.rviz"/>
+    <!--<node name="rviz" pkg="rviz" type="rviz" args="-d $(find aubo_control)/basic.rviz"/>-->
 
 
 

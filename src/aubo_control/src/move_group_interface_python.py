@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 import sys
-import copy
 import rospy
 import moveit_commander
 import moveit_msgs.msg
@@ -11,6 +10,7 @@ from moveit_commander.conversions import pose_to_list
 import time
 
 group_name = "cyborg_sys_101"
+h=0
 
 class move_group(object):
   group = moveit_commander.MoveGroupCommander(group_name)
@@ -39,9 +39,7 @@ class move_group(object):
   def plan_joint(self,i,j,k):
     group = self.group
     joint_goal = group.get_current_joint_values()
-    joint_goal[0] = i
-    joint_goal[1] = j
-    joint_goal[2] = k
+    joint_goal = [i,j,k]
     group.go(joint_goal, wait=False)
     print(joint_goal)
 
@@ -49,12 +47,14 @@ class move_group(object):
 def main():
   genos = move_group()
   print("planning now__________________________")
-  for h in range(100):
-    genos.plan_joint(pi,1.5 * pi, 2)
-    print(h)
-    time.sleep(0.5)
-    genos.plan_joint(0,pi,0)
-    time.sleep(0.5)
+  h=0
+  while True:
+    genos.plan_joint(0.01 * h,1.5 * pi, 2)
+#    print(h)
+    h = h + 1
+    time.sleep(0.2)
+#    genos.plan_joint(0,pi,0)
+#    time.sleep(0.2)
   print("done")
 
 
