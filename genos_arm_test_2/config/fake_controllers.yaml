@@ -1,0 +1,10 @@
+controller_list:
+  - name: fake_cyborg_sys_101_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - joint_adcu_1
+      - joint_2_S_rev
+      - joint_3_rev
+initial:  # Define initial robot poses per group
+  - group: cyborg_sys_101
+    pose: T_pose

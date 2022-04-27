@@ -1,0 +1,45 @@
+cyborg_sys_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - joint_adcu_1
+    - joint_2_S_rev
+    - joint_3_rev
+  gains:
+    joint_adcu_1:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    joint_2_S_rev:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    joint_3_rev:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+#  constraints:
+#    goal_time: 0.6
+#    stopped_velocity_tolerance: 0
+#    joint_adcu_1 : {trajectory: 0.1, goal: 0}
+#    joint_2_S_rev: {trajectory: 0.1, goal: 0}
+#    joint_3_rev  : {trajectory: 0.1, goal: 0}
+#  stop_trajectory_duration: 0.5
+#  state_publish_rate:  25
+#  action_monitor_rate: 50
+gazebo_ros_control:   
+  pid_gains:
+    joint_adcu_1:
+      p: 100
+      d: 1
+      i: 1
+    joint_2_S_rev:
+      p: 10
+      d: 1
+      i: 1
+    joint_3_rev:
+      p: 100
+      d: 1
+      i: 1
