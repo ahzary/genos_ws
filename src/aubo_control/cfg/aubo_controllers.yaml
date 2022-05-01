@@ -1,0 +1,51 @@
+# ros_control_boilerplate Settings -----------------------
+# Settings for ros_control control loop
+
+generic_hw_control_loop:
+  loop_hz: 200 # 250 to emulate serial pause COMMAND_PERIOD 0.0055 , SERIAL_PAUSE 0.004
+  cycle_time_error_threshold: 0.1
+
+# Settings for ros_control hardware interface (used in generic_hw_interface.cpp)
+hardware_interface:
+   joints:
+    - link_1_rev
+    - link_2_rev
+    - link_3_rev
+
+# Publish all joint states ----------------------------------
+# Creates the /joint_states topic necessary in ROS
+joint_state_controller:
+   type: joint_state_controller/JointStateController
+   publish_rate: 200
+
+# Joint Trajectory Controller -------------------------------
+# For detailed explanations of parameter see http://wiki.ros.org/joint_trajectory_controller
+#position_trajectory_controller:
+#  type: position_controllers/JointTrajectoryController
+#  joints:
+#      - joint_3_rev
+#      - joint_2_S_rev
+#      - joint_adcu_1
+#trying to use my own controller (qqq)
+arm_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - link_1_rev
+    - link_2_rev
+    - link_3_rev
+  gains:
+    link_1_rev:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    link_2_rev:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    link_3_rev:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1

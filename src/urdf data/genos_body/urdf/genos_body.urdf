@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="genos_body">
+  <link name="world" />
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0656377277619113 -0.0449999999999988 2.29266261721715"
+        rpy="0 0 0" />
+      <mass
+        value="0.186774887849971" />
+      <inertia
+        ixx="4.06423980219236E-05"
+        ixy="-2.18634005648185E-20"
+        ixz="1.87637236736056E-14"
+        iyy="0.000347485975348893"
+        iyz="-2.34800063185349E-20"
+        izz="0.000309956492124469" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.996078431372549 0.996078431372549 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+      <joint name="world_joint" type="fixed">
+        <parent link="world" />
+        <child link="base_link" />
+    </joint>
+  <link
+    name="bag">
+    <inertial>
+      <origin
+        xyz="0.116612594866228 0.195115283964584 -0.0281532798798317"
+        rpy="0 0 0" />
+      <mass
+        value="22.0317913303056" />
+      <inertia
+        ixx="0.329325495700432"
+        ixy="0.000742015525740789"
+        ixz="0.00851839270743643"
+        iyy="0.151585577390128"
+        iyz="0.00424011756727731"
+        izz="0.282391392384893" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/bag.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.92156862745098 0.92156862745098 0.92156862745098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/bag.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="bag_fixed"
+    type="fixed">
+    <origin
+      xyz="-0.048 0 2.3361"
+      rpy="-1.5708 0 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="bag" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="other_arm">
+    <inertial>
+      <origin
+        xyz="0.065833448779935 -0.00758303000363519 -0.0333351207291052"
+        rpy="0 0 0" />
+      <mass
+        value="1.15961583971126" />
+      <inertia
+        ixx="0.000780039308307398"
+        ixy="-1.35736011166873E-05"
+        ixz="1.84892465150726E-06"
+        iyy="0.00107740234627636"
+        iyz="1.29276462197406E-07"
+        izz="0.00134584573900668" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/other_arm.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/other_arm.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="other_arm_fixed"
+    type="fixed">
+    <origin
+      xyz="0 0.03972 -0.20528"
+      rpy="1.5708 0.097223 1.5708" />
+    <parent
+      link="bag" />
+    <child
+      link="other_arm" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="nema_1">
+    <inertial>
+      <origin
+        xyz="1.07363007373351E-11 0.038244189460183 0.00022042085092866"
+        rpy="0 0 0" />
+      <mass
+        value="0.21993736848337" />
+      <inertia
+        ixx="9.35780461342043E-05"
+        ixy="-1.36945188469242E-16"
+        ixz="3.91021599793746E-14"
+        iyy="9.83529316218501E-05"
+        iyz="2.01529706335941E-09"
+        izz="9.30083454728926E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/nema_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.945098039215686 0.694117647058824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/nema_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="nema_1_fixed"
+    type="fixed">
+    <origin
+      xyz="0.13105 -0.1275 2.2927"
+      rpy="0 1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="nema_1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="gearbox_1">
+    <inertial>
+      <origin
+        xyz="8.33111357678717E-13 -0.00999411954819123 7.9219963922128E-13"
+        rpy="0 0 0" />
+      <mass
+        value="0.202841956021701" />
+      <inertia
+        ixx="0.000147864258182956"
+        ixy="-9.67553713072785E-15"
+        ixz="0"
+        iyy="0.000254396862103912"
+        iyz="-9.20447502631052E-15"
+        izz="0.000147864258182956" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/gearbox_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.749019607843137 0.749019607843137 0.749019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/gearbox_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gearbox_1_fixed"
+    type="fixed">
+    <origin
+      xyz="0.13105 0 2.2927"
+      rpy="0 -1.3187 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="gearbox_1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_1">
+    <inertial>
+      <origin
+        xyz="0.077727473357013 0.0249999999893867 0.0050000000405879"
+        rpy="0 0 0" />
+      <mass
+        value="0.194782225878588" />
+      <inertia
+        ixx="4.09206234646084E-05"
+        ixy="4.21055016399653E-14"
+        ixz="-3.72141548439145E-14"
+        iyy="0.000343091980251374"
+        iyz="-2.29864194529837E-15"
+        izz="0.000380766233284672" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.996078431372549 0.996078431372549 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link_1_rev"
+    type="revolute">
+    <origin
+      xyz="0.0082896 0.029 0.027951"
+      rpy="-1.5708 0.25211 3.1416" />
+    <parent
+      link="gearbox_1" />
+    <child
+      link="link_1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.57"
+      upper="0"
+      effort="20"
+      velocity="20" />
+  </joint>
+  <link
+    name="link_1_1">
+    <inertial>
+      <origin
+        xyz="0.0352753895613827 0.0104130843759721 -0.0149917618152269"
+        rpy="0 0 0" />
+      <mass
+        value="0.236487383770919" />
+      <inertia
+        ixx="0.000106071859790685"
+        ixy="6.80366201844013E-15"
+        ixz="2.87145084431375E-15"
+        iyy="0.000185828354640971"
+        iyz="-1.26571308308291E-14"
+        izz="0.000132297951246468" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/link_1_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.996078431372549 0.996078431372549 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/link_1_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link_1_1_fixed"
+    type="fixed">
+    <origin
+      xyz="0.15 0.1 -0.002"
+      rpy="0 0 3.1416" />
+    <parent
+      link="link_1" />
+    <child
+      link="link_1_1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="nema_2">
+    <inertial>
+      <origin
+        xyz="3.83484355381825E-11 0.0382441894640014 0.000220420809023084"
+        rpy="0 0 0" />
+      <mass
+        value="0.219937368483371" />
+      <inertia
+        ixx="9.35780461342048E-05"
+        ixy="-8.02116064078345E-16"
+        ixz="3.90793300601243E-14"
+        iyy="9.83529316218502E-05"
+        iyz="2.01529738947543E-09"
+        izz="9.30083454728932E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/nema_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.945098039215686 0.694117647058824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/nema_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="nema_2_fixed"
+    type="fixed">
+    <origin
+      xyz="0.025 -0.0875 -0.075"
+      rpy="3.1416 0 3.1416" />
+    <parent
+      link="link_1_1" />
+    <child
+      link="nema_2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="gearbox_2">
+    <inertial>
+      <origin
+        xyz="4.95667951128098E-11 0.0300058804556396 9.70779012732237E-12"
+        rpy="0 0 0" />
+      <mass
+        value="0.202841956021701" />
+      <inertia
+        ixx="0.000147864258182956"
+        ixy="-1.12657922086736E-14"
+        ixz="-6.7762635780344E-21"
+        iyy="0.000254396862103912"
+        iyz="-1.16488077441934E-14"
+        izz="0.000147864258182956" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/gearbox_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.749019607843137 0.749019607843137 0.749019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/gearbox_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gearbox_2_fixed"
+    type="fixed">
+    <origin
+      xyz="0.025 0 -0.075"
+      rpy="3.1416 -1.2148 3.1416" />
+    <parent
+      link="link_1_1" />
+    <child
+      link="gearbox_2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_2">
+    <inertial>
+      <origin
+        xyz="0.188394539937194 0.00184830238674999 -0.022139553307787"
+        rpy="0 0 0" />
+      <mass
+        value="1.04642759595816" />
+      <inertia
+        ixx="0.000963429119729058"
+        ixy="-3.57477112731684E-13"
+        ixz="6.29360349273006E-13"
+        iyy="0.00534113625498724"
+        iyz="-0.000253176879944689"
+        izz="0.0053462667634848" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.996078431372549 0.996078431372549 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link_2_rev"
+    type="revolute">
+    <origin
+      xyz="0.018205 0.069 -0.022772"
+      rpy="1.5708 -1.2148 0" />
+    <parent
+      link="gearbox_2" />
+    <child
+      link="link_2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="1.57"
+      effort="20"
+      velocity="20" />
+  </joint>
+  <link
+    name="link_2_1">
+    <inertial>
+      <origin
+        xyz="-0.0340527973502005 0.016875321642003 -0.0328885455408666"
+        rpy="0 0 0" />
+      <mass
+        value="0.118926843670707" />
+      <inertia
+        ixx="5.78725098312375E-05"
+        ixy="2.7033470267572E-05"
+        ixz="-3.68414378113843E-13"
+        iyy="4.91005694314973E-05"
+        iyz="8.13374718687384E-13"
+        izz="0.000102923508335283" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/link_2_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.749019607843137 0.749019607843137 0.749019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/link_2_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link_2_1_fixed"
+    type="fixed">
+    <origin
+      xyz="0.32 0.04 0.028"
+      rpy="3.1416 0 2.2758" />
+    <parent
+      link="link_2" />
+    <child
+      link="link_2_1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="nema_3">
+    <inertial>
+      <origin
+        xyz="-9.35690691594715E-11 -0.038244189457463 -0.000220420822295786"
+        rpy="0 0 0" />
+      <mass
+        value="0.219937368483371" />
+      <inertia
+        ixx="9.35780461342047E-05"
+        ixy="-4.45382084497665E-16"
+        ixz="-3.91807927685863E-14"
+        iyy="9.83529316218499E-05"
+        iyz="2.01529780817109E-09"
+        izz="9.30083454728933E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/nema_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.945098039215686 0.694117647058824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/nema_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="nema_3_fixed"
+    type="fixed">
+    <origin
+      xyz="-0.060026 0.047402 -0.1165"
+      rpy="-1.5708 0 0.70498" />
+    <parent
+      link="link_2_1" />
+    <child
+      link="nema_3" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="gearbox_3">
+    <inertial>
+      <origin
+        xyz="0.0142292691059915 -0.0291483328733935 -0.00199341574787516"
+        rpy="0 0 0" />
+      <mass
+        value="0.455824436468215" />
+      <inertia
+        ixx="0.00130949343089516"
+        ixy="2.63791727616474E-06"
+        ixz="1.80391519762986E-07"
+        iyy="0.000413534576545518"
+        iyz="-3.75734006176589E-05"
+        izz="0.000960258974633516" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/gearbox_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.745098039215686 0.737254901960784 0.729411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/gearbox_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gearbox_3_fixed"
+    type="fixed">
+    <origin
+      xyz="-0.098016 0.092052 0.0090658"
+      rpy="0.77327 1.5708 0" />
+    <parent
+      link="link_2_1" />
+    <child
+      link="gearbox_3" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_3">
+    <inertial>
+      <origin
+        xyz="0.173394539943381 -0.0231516976717898 -0.0321395533095599"
+        rpy="0 0 0" />
+      <mass
+        value="1.04642759595816" />
+      <inertia
+        ixx="0.00096342911972906"
+        ixy="-3.37833117012798E-13"
+        ixz="6.28226274078858E-13"
+        iyy="0.00534113625501816"
+        iyz="-0.000253176879945003"
+        izz="0.00534626676345392" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/link_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.996078431372549 0.996078431372549 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://genos_body/meshes/link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link_3_rev"
+    type="revolute">
+    <origin
+      xyz="-0.008936 0 0"
+      rpy="1.5708 1.501705 1.5708" />
+    <parent
+      link="gearbox_3" />
+    <child
+      link="link_3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="1.57"
+      effort="20"
+      velocity="20" />
+  </joint>
+</robot>

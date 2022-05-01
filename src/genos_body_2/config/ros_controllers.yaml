@@ -1,0 +1,22 @@
+arm_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - link_1_rev
+    - link_2_rev
+    - link_3_rev
+  gains:
+    link_1_rev:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    link_2_rev:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    link_3_rev:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
