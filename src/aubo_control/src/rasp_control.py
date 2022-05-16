@@ -50,11 +50,12 @@ def armCmd_callback(data):
     global prev_angle
 
     for h in range(3):
-        error[h] = data.angle[h] - step_position[h]
+        #next step is to replace prev_angle with encoder feedback
+        error[h] = data.angle[h] - prev_angle[h]
         step_count[h] =int( (error[h]/2*pi) * 360 * step_mode / 1.8 )
 
     step(step_count)
-    #prev_angle = data.angle
+    prev_angle = data.angle
     print(step_count)
  
 
