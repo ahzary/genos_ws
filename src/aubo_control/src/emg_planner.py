@@ -13,7 +13,7 @@ from aubo_control.msg import emgmsg
 #-----------------
 
 
-group_name = "cyborg_sys_101"
+group_name = "arm_group"
 
 class move_group(object):
   group = moveit_commander.MoveGroupCommander(group_name)

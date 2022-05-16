@@ -12,7 +12,7 @@ import time
 
 class move_group(object):
 
-  group_name = "cyborg_sys_101"
+  group_name = "arm_group"
   group = moveit_commander.MoveGroupCommander(group_name)
 
   def __init__(self):
@@ -86,21 +86,21 @@ def main():
   print("T_pose")
   genos.speed_set(1)
   genos.named_pose("T_pose")
-
   print("flex")
-  genos.speed_set(0.01)
+  genos.named_pose("flex")
+
+  print("T_pose")
+  genos.speed_set(0.5)
+  genos.named_pose("T_pose")
+  print("flex")
   genos.named_pose("flex")
   
-  genos.speed_set(0.5)
+  
+  genos.speed_set(0.3)
   print("going to zero postion")
-  genos.named_pose("straight_down")
+  genos.named_pose("down")
   print("pose planning done")
-  h=0
-  while True:
-    h = h +1
-    genos.plan_joint(0 , -0.01 * h, -0.1 * h)
-    #genos.plan_joint(0,pi,0)
-#    time.sleep(0.2)
+
   print("done")
 
 

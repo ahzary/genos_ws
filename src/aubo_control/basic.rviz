@@ -64,21 +64,33 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
+        bag:
+          Value: true
         base_link:
           Value: true
-        link_1_S_aduc:
+        gearbox_1:
           Value: true
-        link_2_S_flex:
+        gearbox_2:
           Value: true
-        link_2_S_passive:
+        gearbox_3:
           Value: true
-        link_2_S_passive_2:
+        link_1:
           Value: true
-        link_3_e_passive:
+        link_1_1:
           Value: true
-        link_3_e_rev:
+        link_2:
           Value: true
-        link_passive_1:
+        link_2_1:
+          Value: true
+        link_3:
+          Value: true
+        nema_1:
+          Value: true
+        nema_2:
+          Value: true
+        nema_3:
+          Value: true
+        other_arm:
           Value: true
         world:
           Value: true
@@ -91,14 +103,24 @@ Visualization Manager:
       Tree:
         world:
           base_link:
-            link_1_S_aduc:
-              link_passive_1:
-                link_2_S_flex:
-                  link_2_S_passive:
-                    link_2_S_passive_2:
-                      link_3_e_rev:
-                        link_3_e_passive:
+            bag:
+              other_arm:
+                {}
+            gearbox_1:
+              link_1:
+                link_1_1:
+                  gearbox_2:
+                    link_2:
+                      link_2_1:
+                        gearbox_3:
+                          link_3:
+                            {}
+                        nema_3:
                           {}
+                  nema_2:
+                    {}
+            nema_1:
+              {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -111,42 +133,72 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        bag:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link_1_S_aduc:
+        gearbox_1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link_2_S_flex:
+        gearbox_2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link_2_S_passive:
+        gearbox_3:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link_2_S_passive_2:
+        link_1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link_3_e_passive:
+        link_1_1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link_3_e_rev:
+        link_2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link_passive_1:
+        link_2_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        link_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        nema_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        nema_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        nema_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        other_arm:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -161,7 +213,7 @@ Visualization Manager:
       Update Interval: 0
       Value: true
       Visual Enabled: true
-    - Acceleration_Scaling_Factor: 0.1
+    - Acceleration_Scaling_Factor: 0.5
       Class: moveit_rviz_plugin/MotionPlanning
       Enabled: true
       Move Group Namespace: ""
@@ -192,42 +244,72 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
+          bag:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           base_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          link_1_S_aduc:
+          gearbox_1:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          link_2_S_flex:
+          gearbox_2:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          link_2_S_passive:
+          gearbox_3:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          link_2_S_passive_2:
+          link_1:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          link_3_e_passive:
+          link_1_1:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          link_3_e_rev:
+          link_2:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          link_passive_1:
+          link_2_1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          link_3:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          nema_1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          nema_2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          nema_3:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          other_arm:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -258,7 +340,7 @@ Visualization Manager:
         Goal State Color: 250; 128; 0
         Interactive Marker Size: 0
         Joint Violation Color: 255; 0; 255
-        Planning Group: cyborg_sys_101
+        Planning Group: arm_group
         Query Goal State: true
         Query Start State: false
         Show Workspace: false
@@ -281,42 +363,72 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
+          bag:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           base_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          link_1_S_aduc:
+          gearbox_1:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          link_2_S_flex:
+          gearbox_2:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          link_2_S_passive:
+          gearbox_3:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          link_2_S_passive_2:
+          link_1:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          link_3_e_passive:
+          link_1_1:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          link_3_e_rev:
+          link_2:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          link_passive_1:
+          link_2_1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          link_3:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          nema_1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          nema_2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          nema_3:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          other_arm:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -329,7 +441,7 @@ Visualization Manager:
         Show Robot Collision: false
         Show Robot Visual: false
       Value: true
-      Velocity_Scaling_Factor: 0.1
+      Velocity_Scaling_Factor: 1
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -358,7 +470,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 3.3006677627563477
+      Distance: 5.569215297698975
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -366,17 +478,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -0.19366875290870667
-        Y: 0.13091012835502625
-        Z: 0.47672727704048157
+        X: -0.9248197078704834
+        Y: 0.09622634947299957
+        Z: 1.291847825050354
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.33479738235473633
+      Pitch: 0.29979708790779114
       Target Frame: <Fixed Frame>
-      Yaw: 0.3299933969974518
+      Yaw: 0.40999293327331543
     Saved: ~
 Window Geometry:
   Displays:
