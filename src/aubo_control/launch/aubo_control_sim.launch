@@ -1,5 +1,8 @@
  
 <launch>
+   
+   <!-- Intializing sound -->
+   <node  name="sound_play" pkg="sound_play" type="soundplay_node.py"  />
  
  <!-- RVIZ  -->
    
@@ -54,6 +57,9 @@
     <arg name="info" value="true"/> 
     
     </include>
+
+   <!-- Control nodes -->
+   <!--<node  name="demo_node" pkg="aubo_control" type="move_group_interface_python.py"  />-->
 
   
 </launch>
